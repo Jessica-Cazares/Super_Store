@@ -127,7 +127,7 @@ Para ver más detalles del análisis exploratorio puedes revisar: [Dashboard](/D
 
 * La implementación de un **pipeline de actualización** permitirá que las tablas se mantengan actualizadas de manera regular (por ejemplo, diariamente o semanalmente) con la última información, asegurando la disponibilidad de datos recientes para la toma de decisiones.
 
-* El diseño de tablas de hechos y dimensiones sigue un enfoque de **esquema estrella**, donde, la **tabla de hechos (`sales_superstore`)** se conecta con múltiples **tablas de dimensiones (`customers_dim`, `products_dim`, `orders_dim`, `markets_dim`)**. Este esquema es ideal para el análisis y la creación de dashboards, ya que permite acceder a los datos de forma simple y rápida.
+* El diseño de tablas de hechos y dimensiones sigue un enfoque de **esquema estrella**, donde, la **tabla de hechos**(`sales_superstore`) se conecta con múltiples **tablas de dimensiones** (`customers_dim`, `products_dim`, `orders_dim`, `markets_dim`). Este esquema es ideal para el análisis y la creación de dashboards, ya que permite acceder a los datos de forma simple y rápida.
 
 * La tabla de hechos `sales_superstore` tiene como **clave primaria** el `id_ticket`, lo que garantiza la unicidad de las transacciones. Las **llaves foráneas** conectan la tabla de hechos con las tablas de dimensiones, asegurando que se pueda hacer un análisis detallado utilizando los atributos de las dimensiones.
 
