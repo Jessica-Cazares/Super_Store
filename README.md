@@ -100,7 +100,9 @@ __🔍 12. Análisis exploratorio__
 - **Visualizar distribución**: Se crearon diagramas de dispersión.
 - **Visualizar el comportamiento de los datos a lo largo del tiempo**: Se crearon gráficos para observar datos a través de los años.
 
-Para ver más detalles del análisis exploratorio puedes revisar [Dashboard](/Dashboard/Proyecto5_etl).
+Para ver más detalles del análisis exploratorio puedes revisar: [Dashboard](/Dashboard/Proyecto5_etl.pdf).
+
+🔗 https://lookerstudio.google.com/reporting/58c871d4-115c-4fec-b35d-976aae6fcd3a 
 
 ## Herramientas
 
