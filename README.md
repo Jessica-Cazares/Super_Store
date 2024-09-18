@@ -138,5 +138,5 @@ Para ver más detalles del análisis exploratorio puedes revisar: [Dashboard](/D
 
 * El pipeline de actualización debe manejar estos pasos automáticamente, evitando errores manuales y garantizando la integridad de los datos. La implementación del pipeline de actualización permitirá actualizar las tablas de hechos y dimensiones periódicamente, asegurando que los datos reflejen la situación actual del negocio.
 
-Para más detalles sobre las conclusiones y recomendaciones, puedes revisar: [Ficha técnica](/Ficha_técnica/Ficha_técnica) y [Presentación](/Presentación/Presentacion.pdf).
+Para más detalles sobre las conclusiones y recomendaciones, puedes revisar: [Ficha técnica](/Ficha_técnica/Ficha_técnica.pdf) y [Presentación](/Presentación/Presentacion_etl.pdf).
 
