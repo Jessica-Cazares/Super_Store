@@ -90,7 +90,7 @@ __🔗 11. Unir tablas__
 - Con los comandos `SELECT`, `LEFT JOIN`, se creó una tabla para el **análisis exploratorio** 📊.
 - La tabla se generó a partir de la estructura de tablas de dimensiones y de hechos, seleccionando variables que contienen información relevante.
 
-Para ver más detalles de cada uno de los pasos del procesamiento, puedes revisar [Ficha técnica](/Ficha_técnica/Ficha_técnica.pdf).
+Para ver más detalles de cada uno de los pasos del procesamiento, puedes revisar [Ficha técnica](/Ficha_técnica/Ficha_técnica.pdf).
 
 __🔍 12. Análisis exploratorio__
 
