@@ -64,7 +64,7 @@ __🛠️ 8. Diseñar estructura de la base de datos (tablas de hechos y dimensi
 - Clasificación de las variables:
   - **Dimensiones 📏:** Variables que describen atributos contextuales (por ejemplo, productos, clientes, fechas).
   - **Hechos 📊:** Variables que contienen datos cuantitativos o eventos, como ventas, cantidad, y precios.
-- Para ver el diseño de la estructura de la base de datos, puedes revisar [Ficha técnica](/Ficha_técnica/tablas).
+- Para ver el diseño de la estructura de la base de datos, puedes revisar [Ficha técnica](/Ficha_técnica/tablas.png).
     
 __🗄️ 9. Crear estructura de la base de datos (tablas de hechos y dimensiones)__
 - Utilizando los comandos `CREATE TABLE`, `SELECT`, `DISTINCT`, `JOIN`, se crearon y llenaron las tablas en BigQuery.
