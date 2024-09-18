@@ -1,0 +1,403 @@
+﻿Consultas proyecto ETL
+
+
+----Duplicados
+SELECT
+ category,
+ city,
+ country,
+ customer_id,
+ customer_name,
+ discount,
+ market,
+ unknown,
+ order_date,
+ order_id,
+ order_priority,
+ product_id,
+ product_name,
+ profit,
+ quantity,
+ region,
+ row_id,
+ sales,
+ segment,
+ ship_date,
+ ship_mode,
+ shipping_cost,
+ state,
+ sub_category,
+ year,
+ market2,
+ weeknum,
+ COUNT(*) AS count_duplicates
+FROM
+ `Dataset.superstore`
+GROUP BY
+ category,
+ city,
+ country,
+ customer_id,
+ customer_name,
+ discount,
+ market,
+ unknown,
+ order_date,
+ order_id,
+ order_priority,
+ product_id,
+ product_name,
+ profit,
+ quantity,
+ region,
+ row_id,
+ sales,
+ segment,
+ ship_date,
+ ship_mode,
+ shipping_cost,
+ state,
+ sub_category,
+ year,
+ market2,
+ weeknum
+HAVING
+ COUNT(*) > 1;
+
+
+---------660 order_id duplicados
+SELECT
+ order_id,
+ COUNT(*) AS count_duplicates
+FROM `Dataset.order_dim`
+GROUP BY order_id
+HAVING COUNT(*) > 1
+ORDER BY count_duplicates DESC;
+
+
+
+
+SELECT
+ product_id,
+ COUNT(*) AS count_duplicates
+FROM `Dataset.product_dim`
+GROUP BY product_id
+HAVING COUNT(*) > 1
+ORDER BY count_duplicates DESC;
+
+
+-----10292 product_id diferentes
+SELECT COUNT(DISTINCT product_id) AS unique_product_count
+FROM `Dataset.superstore`;
+
+
+
+
+----duplicados product_id
+SELECT
+ product_id,
+ COUNT(*) AS count_duplicates
+FROM `Dataset.superstore`
+GROUP BY product_id
+HAVING COUNT(*) > 1
+ORDER BY count_duplicates DESC;
+
+
+----Valores nulos
+SELECT
+ COUNTIF(category IS NULL) AS category_nulls,
+ COUNTIF(city IS NULL) AS city_nulls,
+ COUNTIF(country IS NULL) AS country_nulls,
+ COUNTIF(customer_id IS NULL) AS customer_id_nulls,
+ COUNTIF(customer_name IS NULL) AS customer_name_nulls,
+ COUNTIF(discount IS NULL) AS discount_nulls,
+ COUNTIF(market IS NULL) AS market_nulls,
+ COUNTIF(unknown IS NULL) AS unknown_nulls,
+ COUNTIF(order_date IS NULL) AS order_date_nulls,
+ COUNTIF(order_id IS NULL) AS order_id_nulls,
+ COUNTIF(order_priority IS NULL) AS order_priority_nulls,
+ COUNTIF(product_id IS NULL) AS product_id_nulls,
+ COUNTIF(product_name IS NULL) AS product_name_nulls,
+ COUNTIF(profit IS NULL) AS profit_nulls,
+ COUNTIF(quantity IS NULL) AS quantity_nulls,
+ COUNTIF(region IS NULL) AS region_nulls,
+ COUNTIF(row_id IS NULL) AS row_id_nulls,
+ COUNTIF(sales IS NULL) AS sales_nulls,
+ COUNTIF(segment IS NULL) AS segment_nulls,
+ COUNTIF(ship_date IS NULL) AS ship_date_nulls,
+ COUNTIF(ship_mode IS NULL) AS ship_mode_nulls,
+ COUNTIF(shipping_cost IS NULL) AS shipping_cost_nulls,
+ COUNTIF(state IS NULL) AS state_nulls,
+ COUNTIF(sub_category IS NULL) AS sub_category_nulls,
+ COUNTIF(year IS NULL) AS year_nulls,
+ COUNTIF(market2 IS NULL) AS market2_nulls,
+ COUNTIF(weeknum IS NULL) AS weeknum_nulls,
+FROM `proyecto5-etl-434804.Dataset.superstore`;
+
+
+-- Ver tipos de datos distintos en la variable 'category'
+SELECT DISTINCT category
+FROM `proyecto5-etl-434804.Dataset.superstore`
+ORDER BY category;
+
+
+-- Ver tipos de datos distintos en la variable 'city'
+SELECT DISTINCT city
+FROM `proyecto5-etl-434804.Dataset.superstore`
+ORDER BY city;
+
+
+-- Ver tipos de datos distintos en la variable 'country'
+SELECT DISTINCT country
+FROM `proyecto5-etl-434804.Dataset.superstore`
+ORDER BY country;
+
+
+-- Ver tipos de datos distintos en la variable 'market'
+SELECT DISTINCT market
+FROM `proyecto5-etl-434804.Dataset.superstore`
+ORDER BY market;
+
+
+-- Ver tipos de datos distintos en la variable 'order_priority'
+SELECT DISTINCT order_priority
+FROM `proyecto5-etl-434804.Dataset.superstore`
+ORDER BY order_priority;
+
+
+-- Ver tipos de datos distintos en la variable 'region'
+SELECT DISTINCT region
+FROM `proyecto5-etl-434804.Dataset.superstore`
+ORDER BY region;
+
+
+-- Ver tipos de datos distintos en la variable 'segment'
+SELECT DISTINCT segment
+FROM `proyecto5-etl-434804.Dataset.superstore`
+ORDER BY segment;
+
+
+-- Ver tipos de datos distintos en la variable 'ship_mode'
+SELECT DISTINCT ship_mode
+FROM `proyecto5-etl-434804.Dataset.superstore`
+ORDER BY ship_mode;
+
+
+-- Ver tipos de datos distintos en la variable 'state'
+SELECT DISTINCT state
+FROM `proyecto5-etl-434804.Dataset.superstore`
+ORDER BY state;
+
+
+-- Ver tipos de datos distintos en la variable 'sub_category'
+SELECT DISTINCT sub_category
+FROM `proyecto5-etl-434804.Dataset.superstore`
+ORDER BY sub_category;
+
+
+-- Ver tipos de datos distintos en la variable 'market2'
+SELECT DISTINCT market2
+FROM `proyecto5-etl-434804.Dataset.superstore`
+ORDER BY market2;
+
+
+---Poner las variables en minusculas
+SELECT DISTINCT LOWER(category) AS standardized_category
+FROM `proyecto5-etl-434804.Dataset.superstore`
+ORDER BY standardized_category;
+
+
+SELECT DISTINCT LOWER(city) AS standardized_city
+FROM `proyecto5-etl-434804.Dataset.superstore`
+ORDER BY standardized_city;
+
+
+SELECT DISTINCT LOWER(country) AS standardized_country
+FROM `proyecto5-etl-434804.Dataset.superstore`
+ORDER BY standardized_country;
+
+
+SELECT DISTINCT LOWER(market) AS standardized_market
+FROM `proyecto5-etl-434804.Dataset.superstore`
+ORDER BY standardized_market;
+
+
+SELECT DISTINCT LOWER(order_priority) AS standardized_order_priority
+FROM `proyecto5-etl-434804.Dataset.superstore`
+ORDER BY standardized_order_priority;
+
+
+SELECT DISTINCT LOWER(region) AS standardized_region
+FROM `proyecto5-etl-434804.Dataset.superstore`
+ORDER BY standardized_region;
+
+
+SELECT DISTINCT LOWER(segment) AS standardized_segment
+FROM `proyecto5-etl-434804.Dataset.superstore`
+ORDER BY standardized_segment;
+
+
+SELECT DISTINCT LOWER(ship_mode) AS standardized_ship_mode
+FROM `proyecto5-etl-434804.Dataset.superstore`
+ORDER BY standardized_ship_mode;
+
+
+SELECT DISTINCT LOWER(state) AS standardized_state
+FROM `proyecto5-etl-434804.Dataset.superstore`
+ORDER BY standardized_state;
+
+
+SELECT DISTINCT LOWER(sub_category) AS standardized_sub_category
+FROM `proyecto5-etl-434804.Dataset.superstore`
+ORDER BY standardized_sub_category;
+
+
+-----variables numericas
+SELECT
+ 'discount' AS variable,
+ COUNT(*) AS count_inconsistent_values,
+ ARRAY_AGG(CAST(discount AS STRING)) AS inconsistent_values
+FROM `Dataset.superstore`
+WHERE SAFE_CAST(discount AS FLOAT64) IS NULL AND discount IS NOT NULL
+
+
+UNION ALL
+
+
+SELECT
+ 'unknown' AS variable,
+ COUNT(*) AS count_inconsistent_values,
+ ARRAY_AGG(CAST(unknown AS STRING)) AS inconsistent_values
+FROM `Dataset.superstore`
+WHERE SAFE_CAST(unknown AS FLOAT64) IS NULL AND unknown IS NOT NULL
+
+
+UNION ALL
+
+
+SELECT
+ 'profit' AS variable,
+ COUNT(*) AS count_inconsistent_values,
+ ARRAY_AGG(CAST(profit AS STRING)) AS inconsistent_values
+FROM `Dataset.superstore`
+WHERE SAFE_CAST(profit AS FLOAT64) IS NULL AND profit IS NOT NULL
+
+
+UNION ALL
+
+
+SELECT
+ 'quantity' AS variable,
+ COUNT(*) AS count_inconsistent_values,
+ ARRAY_AGG(CAST(quantity AS STRING)) AS inconsistent_values
+FROM `Dataset.superstore`
+WHERE SAFE_CAST(quantity AS INT64) IS NULL AND quantity IS NOT NULL
+
+
+UNION ALL
+
+
+SELECT
+ 'row_id' AS variable,
+ COUNT(*) AS count_inconsistent_values,
+ ARRAY_AGG(CAST(row_id AS STRING)) AS inconsistent_values
+FROM `Dataset.superstore`
+WHERE SAFE_CAST(row_id AS INT64) IS NULL AND row_id IS NOT NULL
+
+
+UNION ALL
+
+
+SELECT
+ 'sales' AS variable,
+ COUNT(*) AS count_inconsistent_values,
+ ARRAY_AGG(CAST(sales AS STRING)) AS inconsistent_values
+FROM `Dataset.superstore`
+WHERE SAFE_CAST(sales AS FLOAT64) IS NULL AND sales IS NOT NULL
+
+
+UNION ALL
+
+
+SELECT
+ 'shipping_cost' AS variable,
+ COUNT(*) AS count_inconsistent_values,
+ ARRAY_AGG(CAST(shipping_cost AS STRING)) AS inconsistent_values
+FROM `Dataset.superstore`
+WHERE SAFE_CAST(shipping_cost AS FLOAT64) IS NULL AND shipping_cost IS NOT NULL
+
+
+UNION ALL
+
+
+SELECT
+ 'weeknum' AS variable,
+ COUNT(*) AS count_inconsistent_values,
+ ARRAY_AGG(CAST(weeknum AS STRING)) AS inconsistent_values
+FROM `Dataset.superstore`
+WHERE SAFE_CAST(weeknum AS INT64) IS NULL AND weeknum IS NOT NULL;
+SELECT --DISTINCT
+ a.id_ticket,
+ a.order_id,
+ a.customer_id,
+ a.product_id,
+ a.market_id,
+ a.quantity,
+ a.discount,
+ a.profit,
+ a.sales,
+ a.shipping_cost,
+ a.year,
+ a.weeknum,
+ b.order_priority,
+ b.ship_mode,
+ b.city,
+ b.region,
+ c.segment,
+ d.product_name,
+ d.category,
+ d.sub_category,
+ e.state,
+ e.country,
+ e.market
+FROM `Dataset.sales_superstore` AS a
+LEFT JOIN (
+ SELECT
+ id_ticket,
+   --order_id,
+   order_priority,
+   ship_mode,
+   city,
+   region,
+   ROW_NUMBER() OVER (PARTITION BY order_id ORDER BY order_id) AS rn
+ FROM `proyecto5-etl-434804.Dataset.order_dim`
+) AS b
+ON a.id_ticket = b.id_ticket AND b.rn = 1  -- Filtra solo la primera aparición de cada order_id
+LEFT JOIN (
+ SELECT
+   customer_ID,
+   segment,
+   ROW_NUMBER() OVER (PARTITION BY customer_ID ORDER BY customer_ID) AS rn
+ FROM `proyecto5-etl-434804.Dataset.customer_dim`
+) AS c
+ON a.customer_id = c.customer_ID AND c.rn = 1  -- Filtra solo la primera aparición de cada customer_ID
+LEFT JOIN (
+ SELECT
+   product_id,
+   product_name,
+   category,
+   sub_category,
+   ROW_NUMBER() OVER (PARTITION BY product_id ORDER BY product_id) AS rn
+ FROM `proyecto5-etl-434804.Dataset.product_dim`
+) AS d
+ON a.product_id = d.product_id AND d.rn = 1  -- Filtra solo la primera aparición de cada product_id
+LEFT JOIN (
+ SELECT
+   market_id,
+   state,
+   country,
+   market,
+   ROW_NUMBER() OVER (PARTITION BY market_id ORDER BY market_id) AS rn
+ FROM `proyecto5-etl-434804.Dataset.market_dim`
+) AS e
+ON a.market_id = e.market_id AND e.rn = 1; -- Filtra solo la primera aparición de cada market_id
